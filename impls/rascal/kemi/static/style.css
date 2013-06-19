@@ -1,0 +1,20 @@
+.error {
+  float: none !important;
+  color: red !important;
+  padding-left: .5em !important;
+  vertical-align: top !important;
+}
+
+label {
+  display: inline;
+}
+
+label:first-child {
+  display: block !important;
+}
+
+body {
+  width: 960px;
+  margin: 60px auto;
+}
+

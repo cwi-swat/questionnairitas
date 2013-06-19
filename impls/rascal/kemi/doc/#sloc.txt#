@@ -1,0 +1,36 @@
+# Total: 
+kevin@khepri:~/src/QL-R-kemi/src$ find . -name "*.rsc" | xargs cat |wc -l
+5668
+
+# No comment, whitelines and headers:
+kevin@khepri:~/src/QL-R-kemi/src$ find . -name "*.rsc" | xargs tail -n +8 | grep -v "^[ ]*$" | grep -v @contributor | wc -l
+3814
+
+# Minus string templates:
+kevin@khepri:~/src/QL-R-kemi/src$ find . -name "*.rsc" | xargs tail -n +8 | grep -v "^[ ]*$" | grep -v @contributor | grep -v "^[ ]*'.*$" | wc -l
+3572
+
+# Removing alle linebreaks in oneliners
+# public str getStylingJSName() =
+#   "styling.js";
+# => 
+# public str getStylingJSName() =  "styling.js";
+kevin@khepri:~/src/QL-R-kemi/src$ find . -name "*.rsc" | xargs tail -n +8 | grep -v "^[ ]*$" | grep -v @contributor | grep -v "^[ ]*'.*$" | sed -e ':a; /=[ ]*$/ { N; s/=[ ]*\n/=/; ba; }' | wc -l
+2869
+
+# Moving comprehensions to one line:
+kevin@khepri:~/src/QL-R-kemi/src$ find . -name "*.rsc" | xargs tail -n +8 | grep -v "^[ ]*$" | grep -v @contributor | grep -v "^[ ]*'.*$" | sed -e ':a; /=[ ]*$/ { N; s/=[ ]*\n/=/; ba; }' | sed -e ':a; /,[ ]*$/ { N; s/,[ ]*\n/,/; ba; }' | wc -l
+2642
+
+# Removing linebreaks in 
+# private str createPHP(Question q: 
+#   question( ...
+# ==>
+# private str createPHP(Question q: question(...
+kevin@khepri:~/src/QL-R-kemi/src$ find . -name "*.rsc" | xargs tail -n +8 | grep -v "^[ ]*$" | grep -v @contributor | grep -v "^[ ]*'.*$" | sed -e ':a; /=[ ]*$/ { N; s/=[ ]*\n/=/; ba; }' | sed -e ':a; /,[ ]*$/ { N; s/,[ ]*\n/,/; ba; }' | sed -e ':a; /:[ ]*$/ { N; s/:[ ]*\n/:/; ba; }' | wc -l
+2585
+
+# Moving the ; a line down when it is the only character on the line.
+kevin@khepri:~/src/QL-R-kemi/src$ find . -name "*.rsc" | xargs tail -n +8 | grep -v "^[ ]*$" | grep -v @contributor | grep -v "^[ ]*'.*$" | sed -e ':a; /=[ ]*$/ { N; s/=[ ]*\n/=/; ba; }' | sed -e ':a; /,[ ]*$/ { N; s/,[ ]*\n/,/; ba; }' | sed -e ':a; /:[ ]*$/ { N; s/:[ ]*\n/:/; ba; }' | grep -v "^[ ]*//.*"  |  sed -e ':a; /^[ ]*;[ ]*$/ { N; s/^[ ]*;[ ]*\n/;/; ba; }' | wc -l
+2477
+
