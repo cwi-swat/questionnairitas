@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="generate EMF QL" default="generate-EMF" basedir="../..">
+
+	<target name="generate-EMF" depends="clean-generated">
+		<emf.Ecore2Java
+			model="models/meta/QuestionnaireLanguage.ecore"
+			genModel="models/meta/QuestionnaireLanguage.genmodel"
+			reconcilegenmodel="reload"
+			generatemodelproject="true"
+			generateeditorproject="false"
+			generateeditproject="false"
+		>
+			<arg line="-modelProject QL-Más src-gen" />
+		</emf.Ecore2Java>
+	</target>
+
+	<target name="clean-generated">
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="src-gen/com/mas/activation/custom/lwc2013/QuestionnaireLanguage/" />
+		</delete>
+	</target>
+
+</project>

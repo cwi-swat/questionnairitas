@@ -10,8 +10,7 @@
       <!-- @generated QuestionnaireLanguage -->
       <package
             uri="http://www.mas-wb.com/com/mas/activation/custom/lwc2013/QuestionnaireLanguage"
-            class="com.mas.activation.custom.lwc2013.QuestionnaireLanguage.QuestionnaireLanguagePackage"
-            genModel="models/QuestionnaireLanguage.genmodel"/>
+            class="com.mas.activation.custom.lwc2013.QuestionnaireLanguage.QuestionnaireLanguagePackage"/>
    </extension>
 
 </plugin>
