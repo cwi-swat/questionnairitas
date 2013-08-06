@@ -2,7 +2,6 @@ package com.mas.activation.custom.lwc2013
 
 import com.google.inject.Inject
 import com.google.inject.Injector
-import com.mas.ApplicationServiceProvider
 import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ComputedItem
 import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ConditionalGroup
 import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypeLiteral
@@ -10,21 +9,19 @@ import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Form
 import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.FormElement
 import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Question
 import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Questionnaire
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.QuestionnaireLanguagePackage
 import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.TypeLiteral
-import com.mas.activation.generation.ITextGenerator
 import org.json.JSONArray
 
 import static com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes.*
 
 // not a Singleton because of "running state" elementIdMapper and formIdMapper
-class QuestionnaireLanguageWebGenerator implements ITextGenerator {
+class QuestionnaireLanguageWebGenerator {
 
-	@Inject extension ApplicationServiceProvider
 	@Inject Injector injector
+	@Inject extension Unmarshaller
 
-	override generate(JSONArray model) {
-		val pojoModel = <Questionnaire>unmarshaller(QuestionnaireLanguagePackage.eINSTANCE.ePackageContext, model).result.head
+	def generate(JSONArray model) {
+		val pojoModel = (model.unmarshall as Iterable<?>).head as Questionnaire
 		jsGenerator = new JavascriptGenerator(pojoModel, elementIdMapper, formIdMapper, injector)
 		pojoModel.html
 	}

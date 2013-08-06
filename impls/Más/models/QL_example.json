@@ -1,0 +1,121 @@
+[{
+  "_class": "Questionnaire",
+  "_view": {"collapsed": false},
+  "documentation": "This is the example model from the Language Workbench Challenge 2013, by Tijs van der Storm. The Activation (a reactive Web page) is accessible after signing up and logging in.",
+  "enumerations": {
+    "_class": "Enumeration",
+    "_view": {"collapsed": false},
+    "name": "quality",
+    "literals": [
+      {
+        "_class": "Enumeration Literal",
+        "_view": {"collapsed": false},
+        "name": "good"
+      },
+      {
+        "_class": "Enumeration Literal",
+        "_view": {"collapsed": false},
+        "name": "bad"
+      },
+      {
+        "_class": "Enumeration Literal",
+        "_view": {"collapsed": false},
+        "name": "don't know"
+      }
+    ]
+  },
+  "forms": {
+    "_class": "Form",
+    "_view": {"collapsed": false},
+    "name": "Box1HouseOwning",
+    "elements": [
+      {
+        "_class": "Question",
+        "_view": {"collapsed": false},
+        "name": "hasSoldHouse",
+        "label": "Did you sell a house in 2010?",
+        "type": {
+          "_class": "DataType Literal",
+          "_view": {"collapsed": false},
+          "data type": "boolean"
+        }
+      },
+      {
+        "_class": "Question",
+        "_view": {"collapsed": false},
+        "name": "hasBoughtHouse",
+        "label": "Did you buy a house in 2010?",
+        "type": {
+          "_class": "DataType Literal",
+          "_view": {"collapsed": false},
+          "data type": "boolean"
+        }
+      },
+      {
+        "_class": "Question",
+        "_view": {"collapsed": false},
+        "name": "hasMaintLoan",
+        "label": "Did you enter a loan for maintenance/reconstruction?",
+        "type": {
+          "_class": "DataType Literal",
+          "_view": {"collapsed": false},
+          "data type": "boolean"
+        }
+      },
+      {
+        "_class": "Conditional Group",
+        "_view": {"collapsed": false},
+        "elements": [
+          {
+            "_class": "Question",
+            "_view": {"collapsed": false},
+            "name": "sellingPrice",
+            "label": "Price the house was sold for:",
+            "type": {
+              "_class": "DataType Literal",
+              "_view": {"collapsed": false},
+              "data type": "money"
+            }
+          },
+          {
+            "_class": "Question",
+            "_view": {"collapsed": false},
+            "name": "privateDebt",
+            "label": "Private debts for the sold house:",
+            "type": {
+              "_class": "DataType Literal",
+              "_view": {"collapsed": false},
+              "data type": "money"
+            }
+          },
+          {
+            "_class": "Computed Item",
+            "_view": {"collapsed": false},
+            "name": "valueResidue",
+            "label": "Value residue:",
+            "expression": {
+              "_class": "Binary Operator Expression",
+              "_view": {"collapsed": false},
+              "operator": "subtraction",
+              "leftOperand": {
+                "_class": "Value Reference",
+                "_view": {"collapsed": false},
+                "question": "Box1HouseOwning/sellingPrice"
+              },
+              "rightOperand": {
+                "_class": "Value Reference",
+                "_view": {"collapsed": false},
+                "question": "Box1HouseOwning/privateDebt"
+              }
+            }
+          }
+        ],
+        "enabling condition": {
+          "_class": "Value Reference",
+          "_view": {"collapsed": false},
+          "question": "Box1HouseOwning/hasSoldHouse"
+        }
+      }
+    ]
+  }
+}]
