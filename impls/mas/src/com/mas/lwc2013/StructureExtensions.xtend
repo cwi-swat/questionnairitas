@@ -4,11 +4,9 @@ import com.google.inject.Inject
 import com.google.inject.Singleton
 import com.mas.lwc2013.QL.ComputedItem
 import com.mas.lwc2013.QL.ConditionalGroup
-import com.mas.lwc2013.QL.ExpressiveFormElement
 import com.mas.lwc2013.QL.Form
 import com.mas.lwc2013.QL.FormElement
 import com.mas.lwc2013.QL.Question
-import com.mas.lwc2013.QL.Questionnaire
 import com.mas.lwc2013.QL.SimpleFormElement
 import com.mas.lwc2013.QL.TypeLiteral
 import java.util.List
@@ -31,10 +29,6 @@ class StructureExtensions {
 
 	def allQuestions(Form it) {
 		filter(typeof(Question))
-	}
-
-	def allExpressiveElements(Questionnaire it) {
-		eAllContents.filter(typeof(ExpressiveFormElement)).toList
 	}
 
 	def private <T> List<T> filter(Form it, Class<T> clazz) {

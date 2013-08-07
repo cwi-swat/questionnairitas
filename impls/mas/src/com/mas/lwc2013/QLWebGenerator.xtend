@@ -30,10 +30,6 @@ class QLWebGenerator {
 	var JavaScriptGenerator jsGenerator
 
 
-	@Inject extension ExpressionExtensions
-	@Inject extension StructureExtensions
-	@Inject extension TypeChecker
-
 	def private html(Questionnaire it)
 		'''
 		<!DOCTYPE html>
@@ -55,27 +51,6 @@ class QLWebGenerator {
 		«FOR f : forms»
 			«f.html»
 		«ENDFOR»
-
-		<h1>Validation</h1>
-
-		<p>The questionnaire model validates as follows.</p>
-
-		<h2>Static type check of expressions</h2>
-
-		<table>
-			<tr>
-				<th>issue</th>
-				<th>severity</th>
-				<th>expression</th>
-			</tr>
-			«FOR i : allExpressiveElements.map[expr.check].flatten»
-				<tr>
-					<td>«i.message»</td>
-					<td>«i.severity.name»</td>
-					<td>«i.expr.toRegularString»</td>
-				</tr>
-			«ENDFOR»
-		</table>
 
 		</body>
 		</html>

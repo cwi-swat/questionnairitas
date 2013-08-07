@@ -3,7 +3,6 @@ package com.mas.lwc2013
 import com.google.inject.Inject
 import com.google.inject.Singleton
 import com.mas.lwc2013.QL.BinaryOperatorExpression
-import com.mas.lwc2013.QL.BinaryOperators
 import com.mas.lwc2013.QL.BooleanNegationExpression
 import com.mas.lwc2013.QL.Expression
 import com.mas.lwc2013.QL.Question
@@ -52,33 +51,6 @@ class ExpressionExtensions {
 				}
 			BooleanNegationExpression:	BOOLEAN.typeLiteral
 			ValueReference:				it.question.type
-		}
-	}
-
-
-	def CharSequence toRegularString(Expression it) {
-		switch it {
-			ValueReference:				'''$(«it.question.name»)'''
-			BooleanNegationExpression:	'''!(«it.operand.toString»)'''
-			BinaryOperatorExpression:	'''(«it.leftOperand.toRegularString» «it.operator.toRegularString» «it.rightOperand.toRegularString»)'''
-		}
-	}
-
-	def private toRegularString(BinaryOperators it) {
-		switch it {
-			case SMALLER_THAN:			"<"
-			case GREATER_THAN:			">"
-			case GREATER_THAN_EQUAL_TO:	">="
-			case SMALLER_THAN_EQUAL_TO:	"<="
-			case UNEQUAL_TO:			"!="
-			case EQUAL_TO:				"=="
-			case AND:					"&&"
-			case OR:					"||"
-			case ADDITION:				"+"
-			case SUBTRACTION:			"-"
-			case MULTIPLICATION:		"*"
-			case DIVISION:				"/"
-			case STRING_CONCATENATION:	"+"
 		}
 	}
 

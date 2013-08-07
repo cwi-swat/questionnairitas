@@ -39,12 +39,4 @@ class TypeExtensions {
 		}
 	}
 
-
-	def toRegularString(TypeLiteral it) {
-		switch it {
-			DataTypeLiteral:				'''«it.dataType.literal»-data typed'''
-			EnumerationReferenceLiteral:	'''«it.enumeration.name»-enumeration typed'''
-		}
-	}
-
 }
