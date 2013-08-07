@@ -1,20 +1,23 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013.checks
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
+import com.mas.lwc2013.ExpressionExtensions
 import com.mas.lwc2013.QL.BinaryOperatorExpression
 import com.mas.lwc2013.QL.BooleanNegationExpression
 import com.mas.lwc2013.QL.Expression
 import com.mas.lwc2013.QL.ValueReference
+import com.mas.lwc2013.TypeExtensions
 import java.util.List
 
-import static com.mas.activation.custom.lwc2013.Severity.*
 import static com.mas.lwc2013.QL.DataTypes.*
+import static com.mas.lwc2013.checks.Severity.*
 
 @Singleton
 class TypeChecker {
 
 	@Inject extension ExpressionExtensions
+	@Inject extension TypeExtensions
 
 	def Iterable<Issue> check(Expression it) {
 		check_
@@ -75,3 +78,14 @@ class TypeChecker {
 	}
 
 }
+
+
+@Data
+class Issue {
+
+	@Property	Severity severity
+	@Property	CharSequence message
+	@Property	Expression expr
+
+}
+

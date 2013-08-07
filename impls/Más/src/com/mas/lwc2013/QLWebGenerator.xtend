@@ -1,4 +1,4 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013
 
 import com.google.inject.Inject
 import com.google.inject.Injector
@@ -10,11 +10,13 @@ import com.mas.lwc2013.QL.FormElement
 import com.mas.lwc2013.QL.Question
 import com.mas.lwc2013.QL.Questionnaire
 import com.mas.lwc2013.QL.TypeLiteral
+import com.mas.lwc2013.checks.TypeChecker
+import com.mas.lwc2013.util.IdMapper
+import com.mas.lwc2013.util.Unmarshaller
 import org.json.JSONArray
 
 import static com.mas.lwc2013.QL.DataTypes.*
 
-// not a Singleton because of "running state" elementIdMapper and formIdMapper
 class QLWebGenerator {
 
 	@Inject Injector injector

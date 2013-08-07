@@ -1,4 +1,4 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
@@ -45,7 +45,7 @@ class StructureExtensions {
 		}
 	}
 
-	// (pull-up to ExpressiveFormElement:)
+	// (pulled-up to ExpressiveFormElement:)
 	def dispatch expr(ComputedItem it)		{ expression }
 	def dispatch expr(ConditionalGroup it)	{ enablingCondition }
 

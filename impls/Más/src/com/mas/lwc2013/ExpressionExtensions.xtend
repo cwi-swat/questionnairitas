@@ -1,14 +1,11 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013
 
+import com.google.inject.Inject
 import com.google.inject.Singleton
 import com.mas.lwc2013.QL.BinaryOperatorExpression
 import com.mas.lwc2013.QL.BinaryOperators
 import com.mas.lwc2013.QL.BooleanNegationExpression
-import com.mas.lwc2013.QL.DataTypeLiteral
-import com.mas.lwc2013.QL.DataTypes
-import com.mas.lwc2013.QL.EnumerationReferenceLiteral
 import com.mas.lwc2013.QL.Expression
-import com.mas.lwc2013.QL.QLFactory
 import com.mas.lwc2013.QL.Question
 import com.mas.lwc2013.QL.TypeLiteral
 import com.mas.lwc2013.QL.ValueReference
@@ -18,8 +15,13 @@ import static com.mas.lwc2013.QL.BinaryOperators.*
 import static com.mas.lwc2013.QL.DataTypes.*
 import static java.util.EnumSet.*
 
+/**
+ * Xtensions dealing with QL expressions, such as dependency, type calculation and some verbosity.
+ */
 @Singleton
 class ExpressionExtensions {
+
+	@Inject extension TypeExtensions
 
 	def Set<Question> dependentValues(Expression expr) {
 		switch expr {
@@ -50,41 +52,6 @@ class ExpressionExtensions {
 				}
 			BooleanNegationExpression:	BOOLEAN.typeLiteral
 			ValueReference:				it.question.type
-		}
-	}
-
-
-	val eFactory = QLFactory.eINSTANCE
-
-	def private typeLiteral(DataTypes dataType) {
-		eFactory.createDataTypeLiteral => [ it.dataType = dataType ]
-	}
-
-
-	def is(TypeLiteral it, DataTypes testDataType) {
-		switch it {
-			DataTypeLiteral:	it.dataType == testDataType
-			default:			false
-		}
-	}
-
-
-	def private canBeUndefined(DataTypes it) {
-		it != BOOLEAN
-	}
-
-	def canBeUndefined(TypeLiteral it) {
-		switch it {
-			DataTypeLiteral:				it.dataType.canBeUndefined
-			EnumerationReferenceLiteral:	true
-		}
-	}
-
-
-	def toRegularString(TypeLiteral it) {
-		switch it {
-			DataTypeLiteral:				'''«it.dataType.literal»-data typed'''
-			EnumerationReferenceLiteral:	'''«it.enumeration.name»-enumeration typed'''
 		}
 	}
 

@@ -1,4 +1,4 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013.util
 
 import com.mas.lwc2013.QL.BinaryOperators
 import com.mas.lwc2013.QL.DataTypes
@@ -207,26 +207,26 @@ class Unmarshaller {
 
 	def private doLinking() {
 		settingsToLink.forEach[
-			val feature = setting.EStructuralFeature
-			val refEType = (feature as EReference).EReferenceType
+			val feature = getSetting.getEStructuralFeature
+			val refEType = (feature as EReference).getEReferenceType
 
-			val candidatesByQName = symbolTable.get(qualifiedName)
+			val candidatesByQName = symbolTable.get(getQualifiedName)
 			if( candidatesByQName == null ) {
-				System.err.println('''error: no targets of any type for qualified name "«qualifiedName»"''')
+				System.err.println('''error: no targets of any type for qualified name "«getQualifiedName»"''')
 				return
 			}
 
 			val candidatesByType = candidatesByQName.filter[ refEType.isSuperTypeOf(eClass) ]
 			if( candidatesByType.size != 1 ) {
-				System.err.println('''error: «candidatesByType.size» candidate targets for reference of type «feature.EType.name» to "«qualifiedName»"''')
+				System.err.println('''error: «candidatesByType.size» candidate targets for reference of type «feature.getEType.name» to "«getQualifiedName»"''')
 				return
 			}
 
 			val value = candidatesByType.head
 			if( feature.many ) {
-				(setting.EObject.eGet(setting.EStructuralFeature, false) as EList<EObject>) += value
+				(getSetting.getEObject.eGet(getSetting.getEStructuralFeature, false) as EList<EObject>) += value
 			} else {
-				setting.set(value)
+				getSetting.set(value)
 			}
 		]
 
@@ -241,10 +241,10 @@ class Unmarshaller {
 		println('''settings-to-link:''')
 
 		settingsToLink.forEach[
-			val feature = setting.EStructuralFeature
-			val refEType = (feature as EReference).EReferenceType
+			val feature = getSetting.getEStructuralFeature
+			val refEType = (feature as EReference).getEReferenceType
 
-			println('''	«feature.EContainingClass.name»#«feature.name» --> <«refEType.name»>"«qualifiedName»"''')
+			println('''	«feature.getEContainingClass.name»#«feature.name» --> <«refEType.name»>"«getQualifiedName»"''')
 		]
 
 		println
@@ -261,7 +261,7 @@ final class PreLink {
 	@Property String qualifiedName;
 
 	override String toString() {	// for debugging purposes
-		'''<«setting.EStructuralFeature.EType.name»> "«qualifiedName»"'''
+		'''<«getSetting.getEStructuralFeature.getEType.name»> "«getQualifiedName»"'''
 	}
 
 }

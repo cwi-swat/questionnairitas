@@ -1,4 +1,4 @@
-package com.mas.activation.custom.lwc2013;
+package com.mas.lwc2013.checks;
 
 public enum Severity {
 

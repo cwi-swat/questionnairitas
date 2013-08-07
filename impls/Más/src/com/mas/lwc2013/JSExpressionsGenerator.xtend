@@ -1,4 +1,4 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013
 
 import com.mas.lwc2013.QL.BinaryOperatorExpression
 import com.mas.lwc2013.QL.BinaryOperators
@@ -7,6 +7,7 @@ import com.mas.lwc2013.QL.DataTypeLiteral
 import com.mas.lwc2013.QL.Expression
 import com.mas.lwc2013.QL.FormElement
 import com.mas.lwc2013.QL.ValueReference
+import com.mas.lwc2013.util.IdMapper
 
 import static com.mas.lwc2013.QL.BinaryOperators.*
 import static com.mas.lwc2013.QL.DataTypes.*

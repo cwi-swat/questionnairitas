@@ -1,4 +1,4 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013
 
 import com.google.inject.Inject
 import com.google.inject.Injector
@@ -11,6 +11,7 @@ import com.mas.lwc2013.QL.FormElement
 import com.mas.lwc2013.QL.Question
 import com.mas.lwc2013.QL.Questionnaire
 import com.mas.lwc2013.QL.SimpleFormElement
+import com.mas.lwc2013.util.IdMapper
 
 class JavascriptGenerator {
 
@@ -29,6 +30,7 @@ class JavascriptGenerator {
 
 	@Inject extension StructureExtensions
 	@Inject extension ExpressionExtensions
+	@Inject extension TypeExtensions
 
 
 	def javascript()

@@ -1,4 +1,4 @@
-package com.mas.activation.custom.lwc2013
+package com.mas.lwc2013
 
 import com.google.inject.Guice
 import com.google.inject.Inject
@@ -8,22 +8,27 @@ import org.apache.commons.io.FileUtils
 import org.json.JSONArray
 import org.json.JSONTokener
 
-class InvokeTransformation {
+/**
+ * Main class to kick off generation for QL instances.
+ */
+class RunGeneration {
 
 	def static void main(String[] args) {
-		Guice.createInjector.getInstance(typeof(InvokeTransformation)).run
+		val that = Guice.createInjector.getInstance(typeof(RunGeneration))
+		that.modelName = args.get(0) ?: 'QL_example'
+		that.run
 	}
 
 	@Inject extension QLWebGenerator
 
-	val modelName = 'QL_example'
+	public String modelName
 
 	def private run() {
-		FileUtils.write(new File('''web/«modelName».html'''), persistedModel.generate)
+		FileUtils.write(new File('''web/«modelName».html'''), loadModel.generate)
 		println('''generated HTML for: «modelName»''')
 	}
 
-	def private persistedModel() {
+	def private loadModel() {
 		new JSONArray(new JSONTokener(new FileInputStream(new File('''models/«modelName».json'''))))
 	}
 
