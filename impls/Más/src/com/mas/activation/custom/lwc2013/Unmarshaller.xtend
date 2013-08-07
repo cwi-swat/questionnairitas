@@ -1,18 +1,18 @@
 package com.mas.activation.custom.lwc2013
 
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperators
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Documented
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Enumeration
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.EnumerationLiteral
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Expression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Form
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.FormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Named
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.QuestionnaireLanguageFactory
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.SequentialComposition
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.SimpleFormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.TypeLiteral
+import com.mas.lwc2013.QL.BinaryOperators
+import com.mas.lwc2013.QL.DataTypes
+import com.mas.lwc2013.QL.Documented
+import com.mas.lwc2013.QL.Enumeration
+import com.mas.lwc2013.QL.EnumerationLiteral
+import com.mas.lwc2013.QL.Expression
+import com.mas.lwc2013.QL.Form
+import com.mas.lwc2013.QL.FormElement
+import com.mas.lwc2013.QL.Named
+import com.mas.lwc2013.QL.QLFactory
+import com.mas.lwc2013.QL.SequentialComposition
+import com.mas.lwc2013.QL.SimpleFormElement
+import com.mas.lwc2013.QL.TypeLiteral
 import java.util.List
 import java.util.Map
 import org.eclipse.emf.common.util.EList
@@ -143,7 +143,7 @@ class Unmarshaller {
 	}
 	def private populateForTypeLiteral(TypeLiteral it, JSONObject o)						{ /* (nothing) */ }
 
-	val eFactory = QuestionnaireLanguageFactory.eINSTANCE
+	val eFactory = QLFactory.eINSTANCE
 
 	def private <U, V> Iterable<V> map(JSONArray jsonArray, (U)=>V function) {
 		(0..(jsonArray.length -1)).map[ i |

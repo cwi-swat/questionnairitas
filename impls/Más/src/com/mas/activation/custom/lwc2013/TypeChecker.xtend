@@ -2,14 +2,14 @@ package com.mas.activation.custom.lwc2013
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperatorExpression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BooleanNegationExpression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Expression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ValueReference
+import com.mas.lwc2013.QL.BinaryOperatorExpression
+import com.mas.lwc2013.QL.BooleanNegationExpression
+import com.mas.lwc2013.QL.Expression
+import com.mas.lwc2013.QL.ValueReference
 import java.util.List
 
-import static com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes.*
 import static com.mas.activation.custom.lwc2013.Severity.*
+import static com.mas.lwc2013.QL.DataTypes.*
 
 @Singleton
 class TypeChecker {

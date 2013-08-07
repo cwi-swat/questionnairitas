@@ -1,6 +1,6 @@
 package com.mas.activation.custom.lwc2013
 
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Expression
+import com.mas.lwc2013.QL.Expression
 
 @Data
 class Issue {

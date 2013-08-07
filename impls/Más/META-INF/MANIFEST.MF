@@ -6,14 +6,13 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: DSLConsultancy.com
 Bundle-Localization: plugin
-Export-Package: com.mas.activation.custom.lwc2013.QuestionnaireLanguage,
- com.mas.activation.custom.lwc2013.QuestionnaireLanguage.impl,
- com.mas.activation.custom.lwc2013.QuestionnaireLanguage.util
+Export-Package: com.mas.lwc2013.QL,
+ com.mas.lwc2013.QL.impl,
+ com.mas.lwc2013.QL.util
 Require-Bundle: org.eclipse.xtend.lib,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore;bundle-version="2.9.0",
- org.eclipse.emf.ecore.xmi;bundle-version="2.9.0",
- Xtend-util;bundle-version="1.0.0"
+ org.eclipse.emf.ecore.xmi;bundle-version="2.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

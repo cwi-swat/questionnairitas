@@ -1,32 +1,31 @@
 package com.mas.activation.custom.lwc2013
 
 import com.google.inject.Inject
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ComputedItem
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ConditionalGroup
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ExpressiveFormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Form
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.FormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Question
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Questionnaire
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.SimpleFormElement
-import nl.dslmeinte.xtend.annotations.ClassParameter
-import nl.dslmeinte.xtend.annotations.Initialisation
-import nl.dslmeinte.xtend.annotations.ParametrizedInjected
+import com.google.inject.Injector
+import com.mas.lwc2013.QL.ComputedItem
+import com.mas.lwc2013.QL.ConditionalGroup
+import com.mas.lwc2013.QL.DataTypes
+import com.mas.lwc2013.QL.ExpressiveFormElement
+import com.mas.lwc2013.QL.Form
+import com.mas.lwc2013.QL.FormElement
+import com.mas.lwc2013.QL.Question
+import com.mas.lwc2013.QL.Questionnaire
+import com.mas.lwc2013.QL.SimpleFormElement
 
-@ParametrizedInjected
 class JavascriptGenerator {
 
-	@ClassParameter Questionnaire questionnaire
-
-	@ClassParameter extension IdMapper<FormElement> elementIdMapper
-	@ClassParameter IdMapper<Form> formIdMapper
-	extension JSExpressionsGenerator jsExpressionsGenerator
-
-	@Initialisation
-	def init() {
+	new (Questionnaire questionnaire, IdMapper<FormElement> elementIdMapper, IdMapper<Form> formIdMapper, Injector injector) {
+		this.questionnaire = questionnaire
+		this.elementIdMapper = elementIdMapper
+		this.formIdMapper = formIdMapper
 		this.jsExpressionsGenerator = new JSExpressionsGenerator(elementIdMapper)
+		injector.injectMembers(this)
 	}
+
+	val Questionnaire questionnaire
+	val extension IdMapper<FormElement> elementIdMapper
+	val IdMapper<Form> formIdMapper
+	val extension JSExpressionsGenerator jsExpressionsGenerator
 
 	@Inject extension StructureExtensions
 	@Inject extension ExpressionExtensions

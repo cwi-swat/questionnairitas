@@ -14,7 +14,7 @@ class InvokeTransformation {
 		Guice.createInjector.getInstance(typeof(InvokeTransformation)).run
 	}
 
-	@Inject extension QuestionnaireLanguageWebGenerator
+	@Inject extension QLWebGenerator
 
 	val modelName = 'QL_example'
 

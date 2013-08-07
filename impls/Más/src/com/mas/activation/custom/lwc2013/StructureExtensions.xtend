@@ -2,15 +2,15 @@ package com.mas.activation.custom.lwc2013
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ComputedItem
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ConditionalGroup
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ExpressiveFormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Form
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.FormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Question
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Questionnaire
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.SimpleFormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.TypeLiteral
+import com.mas.lwc2013.QL.ComputedItem
+import com.mas.lwc2013.QL.ConditionalGroup
+import com.mas.lwc2013.QL.ExpressiveFormElement
+import com.mas.lwc2013.QL.Form
+import com.mas.lwc2013.QL.FormElement
+import com.mas.lwc2013.QL.Question
+import com.mas.lwc2013.QL.Questionnaire
+import com.mas.lwc2013.QL.SimpleFormElement
+import com.mas.lwc2013.QL.TypeLiteral
 import java.util.List
 
 @Singleton

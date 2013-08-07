@@ -1,15 +1,15 @@
 package com.mas.activation.custom.lwc2013
 
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperatorExpression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperators
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BooleanNegationExpression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypeLiteral
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Expression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.FormElement
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ValueReference
+import com.mas.lwc2013.QL.BinaryOperatorExpression
+import com.mas.lwc2013.QL.BinaryOperators
+import com.mas.lwc2013.QL.BooleanNegationExpression
+import com.mas.lwc2013.QL.DataTypeLiteral
+import com.mas.lwc2013.QL.Expression
+import com.mas.lwc2013.QL.FormElement
+import com.mas.lwc2013.QL.ValueReference
 
-import static com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperators.*
-import static com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes.*
+import static com.mas.lwc2013.QL.BinaryOperators.*
+import static com.mas.lwc2013.QL.DataTypes.*
 
 @Data
 class JSExpressionsGenerator {

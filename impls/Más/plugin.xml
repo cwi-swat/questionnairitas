@@ -7,10 +7,11 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated QuestionnaireLanguage -->
+      <!-- @generated QL -->
       <package
-            uri="http://www.mas-wb.com/com/mas/activation/custom/lwc2013/QuestionnaireLanguage"
-            class="com.mas.activation.custom.lwc2013.QuestionnaireLanguage.QuestionnaireLanguagePackage"/>
+            uri="http://www.mas-wb.com/com/mas/lwc2013/QL"
+            class="com.mas.lwc2013.QL.QLPackage"
+            genModel="models/meta/QL.genmodel"/>
    </extension>
 
 </plugin>

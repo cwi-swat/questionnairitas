@@ -1,21 +1,21 @@
 package com.mas.activation.custom.lwc2013
 
 import com.google.inject.Singleton
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperatorExpression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperators
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BooleanNegationExpression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypeLiteral
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.EnumerationReferenceLiteral
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Expression
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.Question
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.QuestionnaireLanguageFactory
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.TypeLiteral
-import com.mas.activation.custom.lwc2013.QuestionnaireLanguage.ValueReference
+import com.mas.lwc2013.QL.BinaryOperatorExpression
+import com.mas.lwc2013.QL.BinaryOperators
+import com.mas.lwc2013.QL.BooleanNegationExpression
+import com.mas.lwc2013.QL.DataTypeLiteral
+import com.mas.lwc2013.QL.DataTypes
+import com.mas.lwc2013.QL.EnumerationReferenceLiteral
+import com.mas.lwc2013.QL.Expression
+import com.mas.lwc2013.QL.QLFactory
+import com.mas.lwc2013.QL.Question
+import com.mas.lwc2013.QL.TypeLiteral
+import com.mas.lwc2013.QL.ValueReference
 import java.util.Set
 
-import static com.mas.activation.custom.lwc2013.QuestionnaireLanguage.BinaryOperators.*
-import static com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes.*
+import static com.mas.lwc2013.QL.BinaryOperators.*
+import static com.mas.lwc2013.QL.DataTypes.*
 import static java.util.EnumSet.*
 
 @Singleton
@@ -54,7 +54,7 @@ class ExpressionExtensions {
 	}
 
 
-	val eFactory = QuestionnaireLanguageFactory.eINSTANCE
+	val eFactory = QLFactory.eINSTANCE
 
 	def private typeLiteral(DataTypes dataType) {
 		eFactory.createDataTypeLiteral => [ it.dataType = dataType ]

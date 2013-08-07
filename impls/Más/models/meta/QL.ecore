@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="QuestionnaireLanguage" nsURI="http://www.mas-wb.com/com/mas/activation/custom/lwc2013/QuestionnaireLanguage"
-    nsPrefix="com.mas.activation.custom.lwc2013">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="QL" nsURI="http://www.mas-wb.com/com/mas/lwc2013/QL" nsPrefix="com.mas.lwc2013">
   <eClassifiers xsi:type="ecore:EClass" name="BinaryOperatorExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftOperand" lowerBound="1"
         eType="#//Expression" containment="true">
