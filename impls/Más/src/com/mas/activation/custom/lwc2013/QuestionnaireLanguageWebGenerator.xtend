@@ -18,10 +18,9 @@ import static com.mas.activation.custom.lwc2013.QuestionnaireLanguage.DataTypes.
 class QuestionnaireLanguageWebGenerator {
 
 	@Inject Injector injector
-	@Inject extension Unmarshaller
 
 	def generate(JSONArray model) {
-		val pojoModel = (model.unmarshall as Iterable<?>).head as Questionnaire
+		val pojoModel = new Unmarshaller(model).result.head as Questionnaire
 		jsGenerator = new JavascriptGenerator(pojoModel, elementIdMapper, formIdMapper, injector)
 		pojoModel.html
 	}
