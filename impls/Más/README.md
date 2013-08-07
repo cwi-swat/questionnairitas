@@ -25,20 +25,20 @@ What follows is a description of the moving parts of this implementation.
 ### Abstract syntax
 
 Since Más' models are edited projectively, some serialization format is required instead of a concrete, textual format: JSON is used.
-The file ```models/QL_example.json``` contains the serialization of the QL (instance) example given in the LWC2013 assignment [http://www.languageworkbenches.net/images/5/53/Ql.pdf].
+The file ```models/QL_example.json``` contains the serialization of the QL (instance) example given in the LWC2013 assignment (http://www.languageworkbenches.net/images/5/53/Ql.pdf).
 
 EMF is used to provide an abstract syntax for QL instances:
  - ```models/meta/QL.ecore``` is the Ecore meta model for QL which is transformed from the abstract syntax part of the actual language definition in Más
  	(the latter is provided as a screenshot).
  - ```models/meta/QL.genmodel``` is the associated EMF GenModel from which the EMF Java classes are generated into ```src-gen```.
- 	Run ```launch configs/QL-Más build-ecore.xml.launch``` (if you have installed the ANT plugin in Eclipse) to trigger this generation.
+ 	**Run** ```launch configs/QL-Más build-ecore.xml.launch``` (if you have installed the ANT plugin in Eclipse) to trigger this generation.
  - ```src/com.mas.lwc2013.Unmarshaller``` unmarshalls the model JSON into abstract syntax form, i.e.: an EMF model that is an instance of the QL Ecore meta model.
 	This unmarshaller is specific to the meta model: Más itself has a generic one, but that's not open source.
 
 ### The generator
 
 The class ```src/com.mas.lwc2013.QLWebGenerator``` is the entry point for the actual HTML generation.
-This class then delegates to ```JavascriptGenerator``` for generation of JavaScript code.
+This class then delegates to ```JavaScriptGenerator``` for generation of JavaScript code.
 Instances of ```IdMapper``` are used to keep a mapping from elements in the QL instance to generated IDs of HTML elements which are referred from JavaScript code.
 Several Xtension classes are used to compute derived properties on elements in the QL instance.
 
