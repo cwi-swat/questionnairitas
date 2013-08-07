@@ -15,7 +15,7 @@ import com.mas.lwc2013.QL.SimpleFormElement
 /**
  * Generator for generating the required JavaScript code.
  */
-class JavascriptGenerator {
+class JavaScriptGenerator {
 
 	new (Questionnaire questionnaire, IdMapper<FormElement> elementIdMapper, IdMapper<Form> formIdMapper, Injector injector) {
 		this.questionnaire = questionnaire

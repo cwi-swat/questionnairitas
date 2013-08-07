@@ -20,14 +20,14 @@ class QLWebGenerator {
 
 	def generate(JSONArray model) {
 		val pojoModel = new Unmarshaller(model).result.head as Questionnaire
-		jsGenerator = new JavascriptGenerator(pojoModel, elementIdMapper, formIdMapper, injector)
+		jsGenerator = new JavaScriptGenerator(pojoModel, elementIdMapper, formIdMapper, injector)
 		pojoModel.html
 	}
 
 	extension IdMapper<FormElement> elementIdMapper = new IdMapper<FormElement>("elt")
 	val formIdMapper = new IdMapper<Form>("form")
 
-	var JavascriptGenerator jsGenerator
+	var JavaScriptGenerator jsGenerator
 
 
 	@Inject extension ExpressionExtensions
