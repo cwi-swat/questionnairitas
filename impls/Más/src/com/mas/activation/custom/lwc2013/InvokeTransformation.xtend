@@ -19,7 +19,7 @@ class InvokeTransformation {
 	val modelName = 'QL_example'
 
 	def private run() {
-		FileUtils.write(new File('''html-gen/«modelName».html'''), persistedModel.generate)
+		FileUtils.write(new File('''web/«modelName».html'''), persistedModel.generate)
 		println('''generated HTML for: «modelName»''')
 	}
 
