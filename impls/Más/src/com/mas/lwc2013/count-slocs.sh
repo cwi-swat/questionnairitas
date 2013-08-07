@@ -1,1 +1,1 @@
-cat ExpressionExtensions.xtend IdMapper.xtend JavascriptGenerator.xtend JSExpressionsGenerator.xtend QLWebGenerator.xtend StructureExtensions.xtend TypeExtensions.xtend | grep -v -E "^\s*$" - | wc -l
+cat ExpressionExtensions.xtend IdMapper.xtend JavaScriptGenerator.xtend JSExpressionsGenerator.xtend QLWebGenerator.xtend StructureExtensions.xtend TypeExtensions.xtend | grep -v -E "^\s*$" - | wc -l
