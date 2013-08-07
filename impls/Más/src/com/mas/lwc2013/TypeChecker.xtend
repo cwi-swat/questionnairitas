@@ -1,17 +1,15 @@
-package com.mas.lwc2013.checks
+package com.mas.lwc2013
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
-import com.mas.lwc2013.ExpressionExtensions
 import com.mas.lwc2013.QL.BinaryOperatorExpression
 import com.mas.lwc2013.QL.BooleanNegationExpression
 import com.mas.lwc2013.QL.Expression
 import com.mas.lwc2013.QL.ValueReference
-import com.mas.lwc2013.TypeExtensions
 import java.util.List
 
 import static com.mas.lwc2013.QL.DataTypes.*
-import static com.mas.lwc2013.checks.Severity.*
+import static com.mas.lwc2013.Severity.*
 
 @Singleton
 class TypeChecker {
@@ -87,5 +85,9 @@ class Issue {
 	@Property	CharSequence message
 	@Property	Expression expr
 
+}
+
+enum Severity {
+	error, warning
 }
 

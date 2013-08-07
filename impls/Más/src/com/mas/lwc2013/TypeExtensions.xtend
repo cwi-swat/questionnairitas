@@ -7,6 +7,9 @@ import com.mas.lwc2013.QL.EnumerationReferenceLiteral
 import com.mas.lwc2013.QL.QLFactory
 import com.mas.lwc2013.QL.TypeLiteral
 
+/**
+ * Xtensions for working with type information.
+ */
 @Singleton
 class TypeExtensions {
 

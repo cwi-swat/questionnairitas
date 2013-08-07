@@ -11,8 +11,10 @@ import com.mas.lwc2013.QL.FormElement
 import com.mas.lwc2013.QL.Question
 import com.mas.lwc2013.QL.Questionnaire
 import com.mas.lwc2013.QL.SimpleFormElement
-import com.mas.lwc2013.util.IdMapper
 
+/**
+ * Generator for generating the required JavaScript code.
+ */
 class JavascriptGenerator {
 
 	new (Questionnaire questionnaire, IdMapper<FormElement> elementIdMapper, IdMapper<Form> formIdMapper, Injector injector) {
@@ -88,7 +90,6 @@ class JavascriptGenerator {
 			«ENDFOR»
 		«ENDIF»
 		'''
-
 
 
 	def private configureInputType(SimpleFormElement it)

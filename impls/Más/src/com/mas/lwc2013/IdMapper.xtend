@@ -1,7 +1,11 @@
-package com.mas.lwc2013.util
+package com.mas.lwc2013
 
 import java.util.Map
 
+/**
+ * Util data structure to keep a consistent mapping from things to generated IDs,
+ * together with some convenient display functions.
+ */
 class IdMapper<T> {
 
 	val String prefix

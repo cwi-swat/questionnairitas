@@ -10,8 +10,7 @@
       <!-- @generated QL -->
       <package
             uri="http://www.mas-wb.com/com/mas/lwc2013/QL"
-            class="com.mas.lwc2013.QL.QLPackage"
-            genModel="models/meta/QL.genmodel"/>
+            class="com.mas.lwc2013.QL.QLPackage"/>
    </extension>
 
 </plugin>

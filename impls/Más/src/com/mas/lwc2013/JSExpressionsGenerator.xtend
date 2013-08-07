@@ -7,15 +7,20 @@ import com.mas.lwc2013.QL.DataTypeLiteral
 import com.mas.lwc2013.QL.Expression
 import com.mas.lwc2013.QL.FormElement
 import com.mas.lwc2013.QL.ValueReference
-import com.mas.lwc2013.util.IdMapper
 
 import static com.mas.lwc2013.QL.BinaryOperators.*
 import static com.mas.lwc2013.QL.DataTypes.*
 
-@Data
+/**
+ * Generator for mapping QL expressions to the corresponding JavaScript code.
+ */
 class JSExpressionsGenerator {
 
-	@Property extension IdMapper<FormElement> elementIdMapper
+	new (IdMapper<FormElement> elementIdMapper) {
+		this.elementIdMapper = elementIdMapper
+	}
+
+	val extension IdMapper<FormElement> elementIdMapper
 
 	def CharSequence asValue(Expression it) {
 		switch it {

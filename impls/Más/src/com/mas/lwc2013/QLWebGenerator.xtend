@@ -10,9 +10,6 @@ import com.mas.lwc2013.QL.FormElement
 import com.mas.lwc2013.QL.Question
 import com.mas.lwc2013.QL.Questionnaire
 import com.mas.lwc2013.QL.TypeLiteral
-import com.mas.lwc2013.checks.TypeChecker
-import com.mas.lwc2013.util.IdMapper
-import com.mas.lwc2013.util.Unmarshaller
 import org.json.JSONArray
 
 import static com.mas.lwc2013.QL.DataTypes.*

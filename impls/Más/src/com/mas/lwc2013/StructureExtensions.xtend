@@ -13,6 +13,9 @@ import com.mas.lwc2013.QL.SimpleFormElement
 import com.mas.lwc2013.QL.TypeLiteral
 import java.util.List
 
+/**
+ * Xtensions for dealing with QL instances on a structural level.
+ */
 @Singleton
 class StructureExtensions {
 

@@ -1,4 +1,4 @@
-package com.mas.lwc2013.util
+package com.mas.lwc2013
 
 import com.mas.lwc2013.QL.BinaryOperators
 import com.mas.lwc2013.QL.DataTypes
@@ -24,9 +24,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * A quickly hand-coded unmarshaller for the JSON which is the serialization of QL models.
- * <p>
- * I didn't use the original unmarshaller (as-is) because it's quite tied to the Más code base.
+ * A somewhat-crude, hand-coded unmarshaller for the JSON which is the serialization of QL models.
  */
 class Unmarshaller {
 
